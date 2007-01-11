@@ -1,0 +1,38 @@
+%% -----------------------------------------------------------------------------
+%% Part of IT University of Göteborg LaTeX template
+%% Author: Oscar Hellström
+%% Email: it4heos@ituniv.se
+%% Date: 2006-10-03
+%% -----------------------------------------------------------------------------
+%% Available special commands:
+%% 
+%% \groupname{Group}
+%% \semester{Autumn 2006}
+%% \course{Course}
+%% \logo{Group Logo}
+%% \reportversion{Version}
+%% \coordinator{Project Coord}
+%% \supervisor{Supervisor}
+%% \pdfauthor{Author}  The pdfauthor does not accept strange chars such 
+%%                     as < or \\
+%% \pdfkeywords{Keywords} For pdfkeywords
+%%
+%% Don't change anything in this file except the preamble.
+%% The ituniv class accepts latin1 and utf8 as arguments,
+%% the rest of the arguments are passed on to the report class.
+%% A language, i.e. english, must be provided.
+%%
+%% Please run with pdflatex, not latex.
+%% If on unix, try out rubber (internet search for LaTeX and Rubber is
+%% interesting ;)
+%% -----------------------------------------------------------------------------
+\documentclass[english,a4paper,latin1]{ituniv}
+\title{Title}
+\author{Author}
+\begin{document}
+\maketitle
+\tableofcontents
+\include{00_version}
+\beginreport
+\input{00_chapters}
+\end{document}

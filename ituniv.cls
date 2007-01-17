@@ -3,7 +3,10 @@
 %% Part of IT University of Göteborg LaTeX template
 %% Author: Oscar Hellström
 %% Email: it4heos@ituniv.se
-%% Date: 2006-10-03
+%% Date: 2007-01-17
+%% -----------------------------------------------------------------------------
+%% Thanks: 
+%% Eddie Olsson for UTF-8 patch
 %% -----------------------------------------------------------------------------
 %% This work may be distributed and/or modified under the
 %% conditions of the LaTeX Project Public License, either version 1.3
@@ -53,7 +56,7 @@
 
 \RequirePackage{ifthen}
 \RequirePackage{babel}
-\RequirePackage{inputenc}
+\RequirePackage[latin1,utf8]{inputenc}
 \RequirePackage{color}
 \RequirePackage{graphicx}
 \RequirePackage{verbatim}

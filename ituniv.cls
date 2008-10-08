@@ -22,7 +22,7 @@
 %% 
 %% The Current Maintainers of this work are O. Hellström and M. Bengtsson.
 %%
-%% This work consists of the files ituniv.cls. 
+%% This work consists of the files ituniv.cls.
 %% -----------------------------------------------------------------------------
 %%
 %% TODO:
@@ -31,11 +31,11 @@
 %% -----------------------------------------------------------------------------
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{ituniv}[2006/10/03 Document class for IT-University reports]
- 
+
 %%
 %% Setup of class
 %%
- 
+
 % declare some new options
 \DeclareOption{utf8}{
 	\PassOptionsToPackage{utf8}{inputenc}
@@ -47,14 +47,14 @@
 	\PassOptionsToClass{\CurrentOption}{report}
 }
 \ProcessOptions*\relax
- 
+
 % base this on report class
 \LoadClass{report}
- 
+
 %%
 %% Load packages
 %%
- 
+
 \RequirePackage{ifthen}
 \RequirePackage{babel}
 \RequirePackage[latin1,utf8]{inputenc}
@@ -79,26 +79,26 @@
 	citecolor=black,%
 	pdfproducer={pdfLaTeX},%
 	pdfpagemode=None]{hyperref}
- 
+
 \setlength\headheight{15pt}
- 
+
 %%
 %% Do some tests
 %%
- 
+
 \IfFileExists{inc/ituniv_logo.pdf}{}{
 	\ClassError{ituniv_logo}%
 	{Cannot find ituniv_logo.pdf}%
 	{Please make sure that the ituniv_logo.pdf exists in inc dir}
 }
- 
+
 \AtBeginDocument{
 \renewcommand\bibname{References}
 \hypersetup{pdftitle={\@title},%
 	pdfsubject={\ituniv@course},%
 	pdfauthor={\ituniv@pdfauthor},%
 	pdfkeywords={\ituniv@pdfkeywords}}
- 
+
 	\ifthenelse{\equal{\ituniv@course}{}}{%
 	\ClassWarning{course}{No course set}}{}
 	\ifthenelse{\equal{\ituniv@groupname}{}}{%
@@ -106,11 +106,11 @@
 	\ifthenelse{\equal{\ituniv@semester}{}}{%
 	\ClassWarning{semester}{No semester set}}{}
 }
- 
+
 %%
 %% Settings
-%% 
- 
+%%
+
 % make sure that some things are set not to cause errors
 \def\ituniv@coord{}
 \def\ituniv@lecturer{}
@@ -124,15 +124,15 @@
 \def\ituniv@logo{}
 \def\ituniv@pdfauthor{}
 \def\ituniv@pdfkeywords{}
- 
+
 % take all images from inc dir
 \graphicspath{{inc/}}
- 
+
 % define some fancy colours
 \definecolor{rltblue}{rgb}{0,0,0.75}
 \definecolor{ittblhead}{rgb}{0.8,0.8,1}
 \definecolor{itblue}{cmyk}{1.0,0.72,0,0.06} % IT-Univs color
- 
+
 % headers TODO, make ruler itblue
 \fancyhead{} %reset fancyhead
 \fancyhead[LO,LE]{\@title}
@@ -142,24 +142,24 @@
 	\fancyhead{} %get rid of the headers on plain pages
 	\renewcommand{\headrulewidth}{0pt} % and the line
 }
- 
+
 \renewcommand\headrule{%
 	{\color{itblue}\vspace{2pt}\hrule}}
 \renewcommand{\headrulewidth}{0.4pt}
- 
+
 % footer
 \fancyfoot[C]{\thepage}
- 
+
 % activate
 \pagestyle{fancy}
- 
+
 % arabic numbering, in the beginning 
 \pagenumbering{roman} % reset this in \beginreport
- 
+
 %%
 %% Define commands
 %%
- 
+
 % Titlepage
 \renewcommand{\maketitle}{%
 \begingroup%
@@ -186,7 +186,7 @@
 	\begin{figure}[!b]
 		\begin{minipage}[t]{\textwidth}
 		\ifthenelse{\equal{\ituniv@coord}{}}{}{
- 
+
 		\textbf{Project Coordinator: \ituniv@coord}\\*
 		}
 		\ifthenelse{\equal{\ituniv@supervisor}{}}{}{
@@ -201,10 +201,10 @@
 		\ifthenelse{\equal{\ituniv@examiner}{}}{}{
 			\textbf{Examiner: \ituniv@examiner}
 			}
- 
+
 		\end{minipage}
 	\end{figure}
- 
+
 	\vspace{\stretch{1}}
 \end{titlepage}%
 \setcounter{footnote}{0}%
@@ -219,7 +219,7 @@
 \endgroup
 \pagebreak
 }
- 
+
 % custom setings for ituniv reports
 \newcommand{\coordinator}[1]{\def\ituniv@coord{#1}}
 \newcommand{\lecturer}[1]{\def\ituniv@lecturer{#1}}
@@ -232,7 +232,7 @@
 \newcommand{\pdfauthor}[1]{\def\ituniv@pdfauthor{#1}}
 \newcommand{\pdfkeywords}[1]{\def\ituniv@pdfkeywords{#1}}
 \newcommand{\logo}[1]{\def\ituniv@logo{#1}}
- 
+
 % handle versions of the report
 \newcommand*{\printreportversion}{}
 \newcommand*{\reportversion}[1]{%
@@ -241,7 +241,7 @@
 	\renewcommand*{\printreportversion}{\ituniv@version\\*}
 	\fi
 }
- 
+
 % redefine report chapters
 \renewcommand\chapter{%
 	\if@openright\cleardoublepage\else\clearpage\fi
@@ -259,7 +259,7 @@
 	\Huge \thechapter. \bfseries #1\par\nobreak
 	\vskip 40\p@
 }}
- 
+
 % Version control
 \newcommand*{\version}[4][minor]{
 	\ifthenelse{\equal{#1}{major}}%
@@ -270,11 +270,11 @@
 	\raggedright{#3} &
 	\raggedright{#4}\tabularnewline
 }
- 
+
 \newcounter{vmajor}
 \newcounter{vminor}
 \@addtoreset{vminor}{vmajor}
- 
+
 \newenvironment{vsncontrol}[0]%
 	{\pagebreak
 	\chapter*{Version History}
@@ -289,6 +289,6 @@
 		\hline
 }%
 {\end{tabular}\pagebreak\ignorespacesafterend}
- 
+
 % set up page numbering
 \newcommand\beginreport[0]{\newpage\pagenumbering{arabic}}
